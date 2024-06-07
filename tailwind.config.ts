@@ -67,7 +67,16 @@ const config: Config = {
       red070 : "#D10E00",
       hourblue : "#0056FF",
       gold : "#C19F63"
-    }
+    },
+    boxShadow: {
+      shadow10: "rgb(0 0 0 / 10%) 2px 2px 8px 0px",
+      shadow025: "0px 1px 3px 0px rgba(0, 0, 0, 0.25);",
+      // bodyShadow : "0px 2px 4px 0px rgba(48, 48, 48, 0.20);",
+      // bottomModalShadow : "0px -2px 8px 0px rgba(0, 0, 0, 0.10);",
+      // bestHostCard: "4px -4px 4px 0px rgba(0, 0, 0, 0.10);",
+      // filterShadow : "0px 16px 20px -6px rgba(0, 0, 0, 0.12);",
+      innerShadow : "0px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;",
+    },
   },
   plugins: [],
 };

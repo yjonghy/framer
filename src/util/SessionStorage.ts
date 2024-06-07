@@ -1,10 +1,10 @@
-export const setSessionItem = (key, value) => {
+export const setSessionItem = (key : string, value : string) => {
     if (typeof window !== "undefined") {
         window.sessionStorage.setItem(key, value)
     }
 }
 
-export const getSessionItem = (key) => {
+export const getSessionItem = (key : string) => {
     let value = ""
     if (typeof  window !== "undefined") {
         value = window.sessionStorage.getItem(key) || ""
@@ -12,7 +12,7 @@ export const getSessionItem = (key) => {
     return value
 }
 
-export const removeSessionItem = (key) => {
+export const removeSessionItem = (key : string) => {
     if (typeof  window !== "undefined") {
         window.sessionStorage.removeItem(key)
     }

@@ -1,5 +1,5 @@
 
-export const numberWithSymbolFormat = (number) => {
+export const numberWithSymbolFormat = (number : number) => {
     // { value: 1e9, symbol: 'G' }, // 10의 9제곱
     // { value: 1e12, symbol: 'T' },
     // { value: 1e15, symbol: 'P' },
