@@ -10,7 +10,7 @@ export default function AnimationColor({ applyColor } : any) {
         <>
             <p
                 onClick={() => setShowColorList(!showColorList)}
-                className="py-[4px] px-[8px] bg-gray050 rounded-[4px] text-white cursor-pointer shadow-shadow10">select color</p>
+                className="py-[4px] px-[8px] bg-gray050 hover:bg-gray080 rounded-[4px] text-white cursor-pointer shadow-shadow10">select color</p>
             {showColorList &&
                 <div
                     className="absolute top-[calc(100%_+_4px)] right-0 py-[8px] w-[200px] h-[200px] overflow-y-auto border border-gray020 rounded-[8px] bg-white shadow-shadow10">

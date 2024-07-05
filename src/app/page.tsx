@@ -13,7 +13,11 @@ export default function Home() {
 
     const [animationCount, setAnimationCount] = useState(0)
     const [colorResult, setColorResult] = useState(colorArray[0].color)
+    const [scaleResult, setScaleResult] = useState([])
 
+    useEffect(() => {
+        console.log(scaleResult, "scaleResult")
+    }, [scaleResult])
 
     const [animateObject, setAnimateObject] = useState<AnimateType>({})
 
@@ -25,7 +29,7 @@ export default function Home() {
     // ease-out: 보통-느리게
     // ease-in-out: 천천-보통-천천(ease와 그래프 모양이 같은데, 기울기 변화 속도는 다르다)
     const motionVariants = {
-        scale: [1, 2, 2, 1, 1],
+        scale: scaleResult,
         rotate: [0, 0, 180, 180, 0],
         borderRadius: ["0%", "0%", "50%", "50%", "0%"],
         duration: 2,
@@ -47,6 +51,8 @@ export default function Home() {
 
             <button
                 onClick={() => {
+
+                    console.log(motionVariants)
                     controls.start(motionVariants).then(r => { console.log(r, "result") })
                 }}
                 className="absolute bottom-[16px] right-[16px] py-[8px] px-[16px] bg-hourblue text-white rounded-[16px]">
@@ -59,7 +65,7 @@ export default function Home() {
                     <div className="relative w-full">
                         <AnimationColor applyColor={(color : string) => setColorResult(color)}/>
                     </div>
-                    <AnimationScale animationCount={animationCount}/>
+                    <AnimationScale animationCount={animationCount} applyScale={(scale : []) => setScaleResult(scale)}/>
                 </div>
             </div>
         </main>
