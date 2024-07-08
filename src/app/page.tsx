@@ -6,6 +6,7 @@ import { AnimateType } from "@src/types/AnimateType";
 import AnimationColor from "./select-ui/animation-color";
 import AnimationCount from "./select-ui/animation-count";
 import AnimationScale from "./select-ui/animation-scale";
+import AnimationRotate from "./select-ui/anination-rotate";
 
 
 export default function Home() {
@@ -14,10 +15,11 @@ export default function Home() {
     const [animationCount, setAnimationCount] = useState(0)
     const [colorResult, setColorResult] = useState(colorArray[0].color)
     const [scaleResult, setScaleResult] = useState([])
+    const [rotateResult, setRotateResult] = useState([])
 
     useEffect(() => {
-        console.log(scaleResult, "scaleResult")
-    }, [scaleResult])
+        console.log(rotateResult, "scaleResult")
+    }, [rotateResult])
 
     const [animateObject, setAnimateObject] = useState<AnimateType>({})
 
@@ -30,11 +32,11 @@ export default function Home() {
     // ease-in-out: 천천-보통-천천(ease와 그래프 모양이 같은데, 기울기 변화 속도는 다르다)
     const motionVariants = {
         scale: scaleResult,
-        rotate: [0, 0, 180, 180, 0],
-        borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-        duration: 2,
-        ease: "easeInOut",
-        times: [0, 0.2, 0.5, 0.8, 1],
+        rotate: rotateResult,
+        borderRadius: ["10%", "10%", "10%", "50%", "10%"],
+        duration: 2000,
+        ease: "easeOut",
+        times: [2000, 2000, 2000, 2000, 2000],
         repeat: Infinity,
         repeatDelay: 2000
     }
@@ -51,7 +53,6 @@ export default function Home() {
 
             <button
                 onClick={() => {
-
                     console.log(motionVariants)
                     controls.start(motionVariants).then(r => { console.log(r, "result") })
                 }}
@@ -66,6 +67,7 @@ export default function Home() {
                         <AnimationColor applyColor={(color : string) => setColorResult(color)}/>
                     </div>
                     <AnimationScale animationCount={animationCount} applyScale={(scale : []) => setScaleResult(scale)}/>
+                    <AnimationRotate animationCount={animationCount} applyRotate={(rotate : []) => setRotateResult(rotate)}/>
                 </div>
             </div>
         </main>
